@@ -224,5 +224,113 @@ h1{
 .el-radio__label{
   color:#9b9b9b !important;
 }
+/* 滑块整体轨道颜色（未选择部分） */
+.el-slider__runway {
+  background-color: #333 !important; /* 深灰 */
+}
 
+/* 已选择区间颜色 */
+.el-slider__bar {
+  background-color: #333 !important; /* 夜间蓝  */
+}
+
+/* 滑块按钮（圆点） */
+.el-slider__button {
+  border: 2px solid #0c386b !important;
+  background-color: #1e1e1e !important;  /* 深色背景 */
+  box-shadow: 0 0 6px #2865ab !important; /* 夜间光晕效果 */
+}
+
+/* 悬浮状态 */
+.el-slider__button:hover {
+  transform: scale(1.1);
+}
+
+/* 数值显示的 tooltip（如果使用 show-tooltip） */
+.el-tooltip__popper {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: 1px solid #4b9fff !important;
+}
+/* 多选框外层 label 文本颜色 */
+.el-checkbox__label {
+  color: #e0e0e0 !important;
+}
+
+/* 未选中的外框颜色 */
+.el-checkbox__inner {
+  background-color: #222 !important;
+  border: 2px solid #555 !important;
+}
+
+/* hover 时外框高亮 */
+.el-checkbox__inner:hover {
+  border-color: #4b9fff !important;
+}
+
+/* 选中状态的背景色和边框色 */
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  background-color: #a70d95 !important; /* 夜间蓝 */
+  border-color: #a70d95 !important;
+}
+
+/* 选中状态下的对勾颜色 */
+.el-checkbox__inner::after {
+  border-color: #fff !important;
+}
+
+/* 禁用状态颜色 */
+.el-checkbox.is-disabled .el-checkbox__label {
+  color: #777 !important;
+}
+
+.el-checkbox.is-disabled .el-checkbox__inner {
+  background-color: #333 !important;
+  border-color: #555 !important;
+}
+/* 整个分页条背景（可选） */
+.el-pagination {
+  background-color: transparent !important; 
+  color: #cfd8dc !important;  /* 字体淡灰 */
+}
+
+/* 页码按钮 */
+.el-pagination .el-pager li {
+  background-color: #2c2c3a !important; /* 暗色背景 */
+  color: #aeb4c1 !important;            /* 字体浅灰 */
+  border-radius: 6px;
+  margin: 0 3px;
+}
+
+/* 鼠标悬停效果 */
+.el-pagination .el-pager li:hover {
+  background-color: #3a3a4a !important;
+  color: #fff !important;
+}
+
+/* 当前页（active） */
+.el-pagination .el-pager li.is-active {
+  background-color: #5c6bc0 !important; /* 高亮色 */
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* 上一页 / 下一页按钮 */
+.el-pagination button {
+  background-color: #2c2c3a !important;
+  color: #aeb4c1 !important;
+}
+
+.el-pagination button:hover:not(:disabled) {
+  background-color: #3a3a4a !important;
+  color: #fff !important;
+}
+
+/* 禁用按钮 */
+.el-pagination button.is-disabled {
+  color: #555 !important;
+}
+.el-pagination span {
+  color: #bfc7d5 !important;
+}
 </style>

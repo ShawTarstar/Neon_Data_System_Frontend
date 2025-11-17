@@ -11,6 +11,13 @@ import Login from '@/views/login/index.vue';
 import Layout from '@/views/layout/index.vue';
 import StudentLayout from '@/views-student/layout/index.vue';
 import Course from '@/views/course/index.vue';
+
+import StudentIndex from '@/views-student/index/index.vue';
+import StudentCourse from '@/views-student/course/index.vue';
+import StudentSelection from '@/views-student/selection/index.vue';
+import StudentWithdraw from '@/views-student/withdraw/index.vue';
+
+
 import { ElMessage } from 'element-plus';
 
 const routes = [
@@ -32,10 +39,13 @@ const routes = [
   },
   { path: '/student', 
     component: StudentLayout,
-    // redirect: '/student/index',
-    // children: [
-      
-    // ]
+    redirect: '/student/index',
+    children: [
+      { path: '/student/index', component: StudentIndex },
+      { path: '/student/course', component: StudentCourse },
+      { path: '/student/selection', component: StudentSelection },
+      { path: '/student/withdraw', component: StudentWithdraw }
+    ]
   },
   { path: '/login', component: Login }
 ];

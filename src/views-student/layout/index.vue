@@ -50,20 +50,24 @@ const logout = () => {
 
           <el-menu router>
             <!-- 首页菜单 -->
-            <el-menu-item index="/admin/index">
+            <el-menu-item index="/student/index">
               <el-icon><Promotion /></el-icon> 首页
             </el-menu-item>
+
             
             <!-- 班级管理菜单 -->
-            <el-sub-menu index="/admin/manage">
+            <el-sub-menu index="/student/courseInfo">
               <template #title>
-                <el-icon><Menu /></el-icon> 班级学员管理
+                <el-icon><Menu /></el-icon> 课程信息管理
               </template>
-              <el-menu-item index="/admin/clazz">
-                <el-icon><HomeFilled /></el-icon>班级管理
+              <el-menu-item index="/student/course">
+                <el-icon><Compass /></el-icon> 我的课程表
               </el-menu-item>
-              <el-menu-item index="/admin/stu">
-                <el-icon><UserFilled /></el-icon>学员管理
+              <el-menu-item index="/student/selection">
+                <el-icon><MessageBox /></el-icon>选课
+              </el-menu-item>
+              <el-menu-item index="/student/withdraw">
+                <el-icon><Remove /></el-icon>退选
               </el-menu-item>
             </el-sub-menu>
           </el-menu>
