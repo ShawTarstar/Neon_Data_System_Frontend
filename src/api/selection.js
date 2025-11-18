@@ -7,3 +7,6 @@ export const queryPageApi=
             &time=${time}&empName=${empName}
             &conflictsFilter=${conflictsFilter}
             &page=${page}&pageSize=${pageSize}`)
+export const selectCourseApi = (studentId,empCourseId) =>
+     request.post(`/student/selection?studentId=${studentId}
+        &empCourseId=${empCourseId}`)

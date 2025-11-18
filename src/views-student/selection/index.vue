@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import {queryPageApi} from "@/api/selection";
+import { ElMessage, ElMessageBox } from 'element-plus'
+import {queryPageApi,selectCourseApi} from "@/api/selection";
 
 const searchCourse=ref({
     date:'',
@@ -89,6 +90,18 @@ const queryPage=async()=>{
     }
     
 }
+const handleSelection=async(row) => { 
+  const loginUser = localStorage.getItem('loginUser')
+  const id = JSON.parse(loginUser).id
+  const result=await selectCourseApi(id,row.id)
+  if(result.code){
+    ElMessage.success('选课成功')
+    queryPage()
+  }else{
+    ElMessage.error(result.msg)
+
+  }
+}
 </script>
 
 <template>
@@ -158,8 +171,8 @@ const queryPage=async()=>{
       <el-table-column prop="period" label="时段" align="center" width="300px"
       :formatter="(row) => formatPeriod(row.period)"/>
       <el-table-column label="操作" align="center">
-        <template #default="scope">
-          <el-button type="primary" size="small">选课</el-button>
+        <template #default={row}>
+          <el-button type="primary" size="small" @click="handleSelection(row)">选课</el-button>
         </template>
       </el-table-column>
     </el-table>
