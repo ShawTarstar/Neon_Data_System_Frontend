@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { querySelectedPageApi,withdrawApi } from "../../api/selection";
+import { studentQueryPageApi } from "../../api/log";
 const formatPeriod = (p) => {
   if (!p || p < 1 || p > 20) return '未知时段'
 
@@ -31,7 +31,7 @@ onMounted(()=>{
 const queryPage=async()=>{ 
     const loginUser = localStorage.getItem('loginUser')
     const id = JSON.parse(loginUser).id
-    const result=await querySelectedPageApi(
+    const result=await studentQueryPageApi(
         id,
         pagination.value.currentPage,
         pagination.value.pageSize
@@ -41,33 +41,19 @@ const queryPage=async()=>{
       pagination.value.total = result.data.total
     }
 }
-const withdraw=async(row)=>{ 
-    const result=await withdrawApi(row.id)
-     if(result.code){
-        ElMessage.success('选课成功')
-        queryPage()
-    }else{
-        ElMessage.error(result.msg)
-
-    }
-    queryPage()
-}
 </script>
 
 <template>
-    <h1>我的退选</h1>
+    <h1>课程操作日志</h1>
     <br>
     <el-table :data="tableData" border style="width: 100%" fit>
       <el-table-column type="index" label="序号" width="55" align="center"/>
-      <el-table-column prop="courseName" label="课程名" align="center" width="300px" />
-      <el-table-column prop="empName" label="授课老师" align="center" width="200px"/>
-      <el-table-column prop="period" label="时段" align="center" width="300px"
+      <el-table-column prop="courseName" label="课程名" align="center" width="200px" />
+      <el-table-column prop="period" label="时段" align="center" width="200px"
       :formatter="(row) => formatPeriod(row.period)"/>
-      <el-table-column label="操作" align="center">
-        <template #default={row}>
-          <el-button type="primary" size="small" @click="withdraw(row)">退选</el-button>
-        </template>
-      </el-table-column>
+      <el-table-column prop="operation" label="操作" align="center" width="200px" />
+      <el-table-column prop="operateTime" label="操作时间" align="center" />
+
     </el-table>
     <br><br>
     <!-- 分页组件Pagination -->

@@ -70,6 +70,9 @@ const logout = () => {
                 <el-icon><Remove /></el-icon>退选
               </el-menu-item>
             </el-sub-menu>
+            <el-menu-item index="/student/log">
+              <el-icon><Document /></el-icon> 课程操作日志
+            </el-menu-item>
           </el-menu>
         </el-aside>
         

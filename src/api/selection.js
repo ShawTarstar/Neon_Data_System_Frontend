@@ -10,3 +10,8 @@ export const queryPageApi=
 export const selectCourseApi = (studentId,empCourseId) =>
      request.post(`/student/selection?studentId=${studentId}
         &empCourseId=${empCourseId}`)
+
+export const querySelectedPageApi = (id,page,pageSize) =>
+    request.get(`/student/selection/${id}?page=${page}&pageSize=${pageSize}`)
+
+export const withdrawApi = (id) => request.delete(`/student/selection?id=${id}`)

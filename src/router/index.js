@@ -16,6 +16,7 @@ import StudentIndex from '@/views-student/index/index.vue';
 import StudentCourse from '@/views-student/course/index.vue';
 import StudentSelection from '@/views-student/selection/index.vue';
 import StudentWithdraw from '@/views-student/withdraw/index.vue';
+import StudentLog from '@/views-student/log/index.vue';
 
 
 import { ElMessage } from 'element-plus';
@@ -44,7 +45,8 @@ const routes = [
       { path: '/student/index', component: StudentIndex },
       { path: '/student/course', component: StudentCourse },
       { path: '/student/selection', component: StudentSelection },
-      { path: '/student/withdraw', component: StudentWithdraw }
+      { path: '/student/withdraw', component: StudentWithdraw },
+      { path: '/student/log', component: StudentLog }
     ]
   },
   { path: '/login', component: Login }
