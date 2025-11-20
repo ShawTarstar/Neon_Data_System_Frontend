@@ -42,7 +42,9 @@ const queryPage=async()=>{
     }
 }
 const withdraw=async(row)=>{ 
-    const result=await withdrawApi(row.id)
+    const loginUser = localStorage.getItem('loginUser')
+    const id = JSON.parse(loginUser).id
+    const result=await withdrawApi(row.id,id)
      if(result.code){
         ElMessage.success('选课成功')
         queryPage()
